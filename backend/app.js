@@ -5,10 +5,17 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
 
+// Import routes
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
+const boardRoutes = require("./routes/board");
+
+// Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
+// Environment Variables
 require("dotenv").config();
 
 // Database connection
@@ -26,6 +33,11 @@ mongoose
       console.log("Something went wrong with database connection");
     }
   );
+
+// endpoints
+app.use("/api", authRoutes);
+app.use("/api", userRoutes);
+app.use("/api", boardRoutes);
 
 const port = process.env.PORT || 5000;
 
