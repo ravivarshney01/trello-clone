@@ -1,0 +1,20 @@
+Endpoints ->
+
+Authentication
+
+post /api/login
+post /api/signup
+get /api/logout
+
+User
+get /api/user
+get /api/user/boards/:userId
+get /api/user/all/:userId
+
+Board
+get /api/board/:boardId/:userId
+post /api/board/create/:userId
+post /api/board/:boardId/add/:userId
+post /api/board/:boardId/:userId/taskadd
+post /api/board/:boardId/:userId/updatetask
+delete /api/board/:boardId/:userId/deletetask/:taskId
